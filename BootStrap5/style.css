@@ -7,7 +7,7 @@ body {
 }
 
 .header {
-    background-color: #ccc;
+    background-color: #cccccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,8 +15,8 @@ body {
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 34px;
+    font-weight: bolder;
 }
 
 .navigation ul {
@@ -25,6 +25,7 @@ body {
     padding: 0;
     display: flex;
     gap: 15px;
+    font-size: 20px;
 }
 
 .navigation a {
@@ -33,7 +34,7 @@ body {
 }
 
 .hero {
-    background-color: #ddd;
+    background-color: #5a9fac;
     text-align: center;
     padding: 50px 20px;
 }
@@ -45,10 +46,14 @@ body {
 
 .content {
     display: flex;
-    gap: 20px;
+    gap: 100px;
     justify-content: center;
     padding: 20px;
     background-color: #f9f9f9;
+    width: 1200px;
+    margin-left: 380px;
+    margin-bottom: 30px;
+    
 }
 
 .card {
@@ -58,6 +63,7 @@ body {
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-top: 30px;
 }
 
 .footer {
@@ -72,5 +78,58 @@ body {
 {
     display: flex;
     justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.inizioSocket-container {
+    display: flex; /* Allinea gli elementi orizzontalmente */
+    align-items: flex-start; /* Allinea verticalmente in cima */
+    margin: 60px 20px 70px 20px;
+}
+
+.inizioSocket {
+    margin-right: 20px; /* Spazio tra il testo e l'immagine */
+    padding: 10px;
+    margin-top: 40px;
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    text-align: left;
+    border: 2px solid red;
+    border-radius: 15px;
+    width: 860px;
+}
+
+.immagine-destra {
+    flex: 1; /* L'immagine occupa meno spazio */
+    max-width: 600px; /* Dimensione massima dell'immagine */
+    margin-top: 20px;
+    margin-left: 200px;
+    border: 2px solid blue;
+    border-radius: 10px;
+}
+
+.immagine-destra img {
+    width: 100%; /* L'immagine riempie il contenitore */
+    height: auto; /* Mantiene il rapporto di aspetto */
+    border-radius: 10px; /* Opzionale: arrotonda i bordi */
+}
+
+.card-container {
+    display: flex; /* Allinea le card orizzontalmente */
+    justify-content: space-between; /* Spazio uniforme tra le card */
+    gap: 20px; /* Spazio personalizzato tra le card */
+    padding: 10px;
+}
+
+.card {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombreggiatura */
+    text-align: center; 
+    padding: 10px;
+}
+
+.card-body
+{
+    padding: 10px;
 
 }
