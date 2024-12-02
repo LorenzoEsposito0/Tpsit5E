@@ -10,6 +10,12 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
+    <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
@@ -18,8 +24,8 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#about">TCP/UDP</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">ISO-OSI</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tcp-udp.html">TCP/UDP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="iso-osi.html">ISO-OSI</a></li>
                         <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                     </ul>
                 </div>
@@ -34,47 +40,90 @@
             </div>
         </header>
         <!-- About section-->
-        <section id="about">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Le Socket sono:</h2>
-                        <p class="lead">This is a great place to talk about your webpage. This template is purposefully unstyled so you can use it as a boilerplate or starting point for you own landing page designs! This template features:</p>
-                        <ul>
-                            <li>Clickable nav links that smooth scroll to page sections</li>
-                            <li>Responsive behavior when clicking nav links perfect for a one page website</li>
-                            <li>Bootstrap's scrollspy feature which highlights which section of the page you're on in the navbar</li>
-                            <li>Minimal custom CSS so you are free to explore your own unique design options</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- About section-->
+<section id="about">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center align-items-center">
+            <div class="col-lg-6">
+                <h2>Le Socket sono:</h2>
+                <p class="lead">
+                    Una socket è un punto finale per la comunicazione, che consente a un processo (programma in esecuzione) di inviare o ricevere dati.
+                    Si può immaginare come un canale attraverso cui fluiscono i dati tra due entità di rete.
+                    La socket è definita dall'indirizzo IP che sarà quello del dispositivo in rete,
+                    la porta della socket che identifica il servizio che sta utilizzando la socket sul dispositivo,
+                    il protocollo che può essere TCP o UDP. <br>
+                    A destra c'è l'esempio di connessione tra client e server.
+                </p>
             </div>
-        </section>
+            <div class="col-lg-6">
+                <img src="C:\Users\hp\Desktop\startbootstrap-scrolling-nav-gh-pages\Immagini\Immagine 2024-11-30 100410.png" alt="Comunicazione Client-Server" class="img-client-server" />
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Services section-->
         <!-- Services section-->
         <section class="bg-light" id="services">
             <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Services we offer</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut optio velit inventore, expedita quo laboriosam possimus ea consequatur vitae, doloribus consequuntur ex. Nemo assumenda laborum vel, labore ut velit dignissimos.</p>
+                <div class="row gx-4 justify-content-center align-items-center">
+                    <div class="col-lg-6">
+                        <img src="C:\Users\hp\Desktop\startbootstrap-scrolling-nav-gh-pages\Immagini\OSI.gif" alt="Modello ISO-OSI" class="img-osi-model" /> <!-- Aggiungi qui l'immagine -->
                     </div>
-                </div>
+            <div class="col-lg-6">
+                <h2>Modello ISO-OSI</h2>
+                <p class="lead">
+                    La pila ISO/OSI è un modello teorico che descrive come i dati viaggiano attraverso una rete. È suddivisa in 7 livelli, ognuno con specifiche responsabilità, 
+                    per standardizzare la comunicazione tra dispositivi e applicazioni.
+                    <br>
+                    <br>
+                    <h2>7 LIVELLI</h2>
+                    <ul>
+                        <li>Livello fisico</li>
+                        <li>Livello Collegamento</li>
+                        <li>Livello di rete</li>
+                        <li>Livello di trasporto</li>
+                        <li>Livello di sessione</li>
+                        <li>Livello di presentazione</li>
+                        <li>Livello Applicativo</li>
+                    </ul>
+                        </p>
+                    </div>
+            </div>
             </div>
         </section>
         <!-- Contact section-->
-        <section id="contact">
+        <section id="tcp-udp" class="py-5">
             <div class="container px-4">
                 <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Contact us</h2>
-                        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem dolor, provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa exercitationem, in, quo totam.</p>
+                    <!-- Card TCP -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card1">
+                            <div class="card-body">
+                                <h5 class="card-title">TCP (Transmission Control Protocol)</h5>
+                                <p class="card-text">
+                                    Il TCP è un protocollo di trasporto orientato alla connessione, utilizzato per garantire la trasmissione affidabile dei dati tra due punti in una rete. Esso stabilisce una connessione tra il mittente e il destinatario.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card UDP -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card2">
+                            <div class="card-body">
+                                <h5 class="card-title">UDP (User  Datagram Protocol)</h5>
+                                <p class="card-text">
+                                    L'UDP è un protocollo di trasporto non orientato alla connessione, che offre una trasmissione dei dati più semplice e veloce rispetto al TCP. Non stabilisce una connessione prima di inviare i dati e non garantisce l'ordine o l'affidabilità dei pacchetti.
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
+            <div class="container px-4"><p class="m-0 text-center text-white">Esposito Lorenzo 5E </p></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

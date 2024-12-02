@@ -10837,3 +10837,175 @@ section {
   padding-top: 9rem;
   padding-bottom: 9rem;
 }
+
+#about {
+  margin-top: 50px; /* Riduci il margine inferiore della sezione "about" */
+}
+
+#services {
+  margin-bottom: 30px; /* Riduci il margine superiore della sezione "services" */
+}
+
+.img-client-server {
+  max-width: 100%; /* Assicura che l'immagine non superi la larghezza del contenitore */
+  height: auto; /* Mantiene le proporzioni dell'immagine */
+  display: block; /* Assicura che l'immagine venga trattata come un blocco */
+  margin-top: 20px; /* Distanza dall'alto (opzionale) */
+  border: 2px solid blue; /* Aggiunge un bordo blu all'immagine (opzionale) */
+  border-radius: 20px; /* Rende gli angoli dell'immagine arrotondati (opzionale) */
+  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.8); /* Ombra attorno all'immagine */
+  margin-left: 70px;
+}
+
+.img-osi-model {
+  max-width: 100%; /* Assicura che l'immagine non superi la larghezza del contenitore */
+  height: 350px; /* Mantiene le proporzioni dell'immagine */
+  display: block; /* Assicura che l'immagine venga trattata come un blocco */
+  margin-top: 20px; /* Distanza dall'alto (opzionale) */
+  border: 2px solid green; /* Aggiunge un bordo verde all'immagine (opzionale) */
+  border-radius: 10px; /* Rende gli angoli dell'immagine arrotondati (opzionale) */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8); /* Ombra attorno all'immagine */
+  margin-left: -70px;
+}
+
+.card1 {
+  border: 1px solid #007bff; /* Bordo blu */
+  border-radius: 10px; /* Angoli arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra attorno alla card */
+  margin-right: 90px;
+  padding: 10px;
+  
+}
+.card2 {
+  border: 1px solid #007bff; /* Bordo blu */
+  border-radius: 10px; /* Angoli arrotondati */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombra attorno alla card */
+  margin-left: 90px;
+  padding: 10px;
+}
+.card-title {
+  font-weight: bold; /* Grassetto per il titolo */
+  color: #007bff; /* Colore blu per il titolo */
+}
+
+.tooltip-content {
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  padding: 10px;
+  position: absolute;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  padding: 80px 0;
+}
+
+section {
+  padding: 60px 0;
+}
+
+.card {
+  margin: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #198754;
+}
+
+footer {
+  background-color: #000;
+  color: #fff;
+}
+/* Stile generale per l'accordion */
+.accordion-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Header dell'accordion */
+.accordion-header {
+  background-color: #f8f9fa;
+  padding: 0.5rem 1rem;
+}
+
+.accordion-header .accordion-button {
+  font-weight: bold;
+  color: #0056b3;
+  background-color: #e9ecef;
+  border: none;
+  text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover e attivo sul pulsante dell'accordion */
+.accordion-header .accordion-button:hover,
+.accordion-header .accordion-button:focus {
+  background-color: #cfe2ff;
+  color: #00376d;
+}
+
+.accordion-header .accordion-button:not(.collapsed) {
+  background-color: #007bff;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.2);
+}
+
+/* Corpo dell'accordion */
+.accordion-body {
+  background-color: #ffffff;
+  color: #333;
+  padding: 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Personalizzazione lista puntata */
+.accordion-body ul {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+  margin: 0.5rem 0;
+}
+
+.accordion-body ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Media Query per schermi più piccoli */
+@media (max-width: 576px) {
+  .accordion-body {
+      font-size: 0.85rem;
+      padding: 0.75rem;
+  }
+
+  .accordion-header .accordion-button {
+      font-size: 0.9rem;
+  }
+}
+
+.custom-header {
+  background-color: #007bff; /* Cambia questo colore a tuo piacimento */
+}
+
+.osi-image {
+  max-width: 750px; /* Rendere l'immagine responsiva */
+  height: 550px; /* Mantieni le proporzioni */
+  border: solid 2px green;
+  border-radius: 18px ;
+}
+
+.text-center-iso.osi{
+  text-align: center !important;
+  width: 500px;
+  height: 450px;
+}
