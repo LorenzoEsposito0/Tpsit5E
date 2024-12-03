@@ -600,7 +600,7 @@ progress {
 .img-fluid {
   margin-top: 40px;
   width: 450px;
-  height: 360px;
+  height: 310px;  
 }
 
 .img-thumbnail {
@@ -11014,4 +11014,8 @@ footer {
 .Distance
 {
   margin-top: 40px;
+}
+
+.bg-primary3 {
+  background-color: violet; /* Puoi usare un codice esadecimale come #EE82EE */
 }
