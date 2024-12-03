@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Spiegazione delle socket" />
+    <meta name="author" content="Socket Guide" />
+    <title>Socket - Spiegazione e Uso</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body id="page-top">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top">SOCKET/HOMEPAGE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="tcp-udp.html">TCP/UDP</a></li>
+                    <li class="nav-item"><a class="nav-link" href="iso-osi.html">ISO-OSI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="glossario.html">GLOSSARIO</a></li>
+                    <li class="nav-item"><a class="nav-link" href="socket.html">SOCKET</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-primary bg-gradient text-white">
+        <div class="container px-4 text-center">
+            <h1 class="fw-bolder">SOCKET</h1>
+            <p class="lead">Cosa sono le socket? </p>
+            <a class="btn btn-lg btn-light" href="#about">Clicca qui per vedere il sito</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container px-4">
+            <h2 class="text-center">Introduzione alle Socket</h2>
+            <p class="text-center mb-4">Le socket consentono la comunicazione bidirezionale tra programmi su una rete.</p>
+            <div class="row gx-5">
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Definizione</h5>
+                            <p class="card-text">
+                                Una socket è un endpoint di comunicazione che permette ai programmi di inviare e ricevere dati attraverso la rete.
+                            </p>
+                            <ul>
+                                <li>Può essere usata con diversi protocolli, come TCP o UDP.</li>
+                                <li>Fornisce un'interfaccia per la comunicazione tra processi (IPC).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 shadow">
+                        <div class="card-body">
+                            <h5 class="card-title">Utilizzo</h5>
+                            <p class="card-text">
+                                Le socket sono fondamentali per:
+                            </p>
+                            <ul>
+                                <li>Applicazioni di rete, come browser o server web.</li>
+                                <li>Servizi online che richiedono la trasmissione di dati in tempo reale.</li>
+                                <li>Applicazioni di streaming, come videochiamate o giochi online.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layout Section -->
+    <section id="layout" class="bg-light py-5">
+        <div class="container px-4">
+            <h2 class="text-center">Esempio di Utilizzo delle Socket</h2>
+            <div class="row gx-5 align-items-center">
+                <div class="col-md-6">
+                    <img src="Immagini/Sockettttt.png" alt="Socket Diagram" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <p>Le socket lavorano con i seguenti passaggi:</p>
+                    <ol>
+                        <li>Creazione della socket con funzioni specifiche, come <code>socket()</code>.</li>
+                        <li>Assegnazione di un indirizzo e porta con <code>bind()</code>.</li>
+                        <li>Ascolto e accettazione di connessioni con <code>listen()</code> e <code>accept()</code> (nel caso del server).</li>
+                        <li>Comunicazione tramite <code>send()</code> e <code>recv()</code>.</li>
+                    </ol>
+                    <p>Questi passaggi sono comuni a molte applicazioni client-server.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <p>© 2024 Socket - Tutti i diritti riservati</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
