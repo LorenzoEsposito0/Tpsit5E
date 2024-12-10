@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Scrolling Nav - Start Bootstrap Template</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">SOCKET/HOMEPAGE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="tcp-udp.html">TCP/UDP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="iso-osi.html">ISO-OSI</a></li>
+                        <li class="nav-item"><a class="nav-link" href="glossario.html">GLOSSARIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="socket.html">SOCKET</a></li>
+
+                        <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-primary bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">Spiegazione delle socket</h1>
+                <p class="lead">Breve spiegazione e introduzione al sito </p>
+                <a class="btn btn-lg btn-light" href="#about">Clicca qui per vedere il sito</a>
+            </div>
+        </header>
+        <!-- About section-->
+        <!-- About section-->
+<section id="about">
+    <div class="container px-4">
+        <div class="row gx-4 justify-content-center align-items-center">
+            <div class="col-lg-6">
+                <h2>Le Socket sono:</h2>
+                <p class="lead">
+                    Una socket è un punto finale per la comunicazione, che consente a un processo (programma in esecuzione) di inviare o ricevere dati.
+                    Si può immaginare come un canale attraverso cui fluiscono i dati tra due entità di rete.
+                    La socket è definita dall'indirizzo IP che sarà quello del dispositivo in rete,
+                    la porta della socket che identifica il servizio che sta utilizzando la socket sul dispositivo,
+                    il protocollo che può essere TCP o UDP. <br>
+                    A destra c'è l'esempio di connessione tra client e server.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <img src="Immagini/Immagine 2024-11-30 100410.png" alt="Comunicazione Client-Server" class="img-client-server" />
+            </div>
+        </div>
+    </div>
+</section>
+        <!-- Services section-->
+        <!-- Services section-->
+        <section class="bg-light" id="services">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center align-items-center">
+                    <div class="col-lg-6">
+                        <img src="Immagini/OSI.gif" alt="Modello ISO-OSI" class="img-osi-model" /> <!-- Aggiungi qui l'immagine -->
+                    </div>
+            <div class="col-lg-6">
+                <h2>Modello ISO-OSI</h2>
+                <p class="lead">
+                    La pila ISO/OSI è un modello teorico che descrive come i dati viaggiano attraverso una rete. È suddivisa in 7 livelli, ognuno con specifiche responsabilità, 
+                    per standardizzare la comunicazione tra dispositivi e applicazioni.
+                    <br>
+                    <br>
+                    <h2>7 LIVELLI</h2>
+                    <ul>
+                        <li>Livello fisico</li>
+                        <li>Livello Collegamento</li>
+                        <li>Livello di rete</li>
+                        <li>Livello di trasporto</li>
+                        <li>Livello di sessione</li>
+                        <li>Livello di presentazione</li>
+                        <li>Livello Applicativo</li>
+                    </ul>
+                        </p>
+                    </div>
+            </div>
+            </div>
+        </section>
+        <!-- Contact section-->
+        <section id="tcp-udp" class="py-5">
+            <div class="container px-4">
+                <div class="row gx-4 justify-content-center">
+                    <!-- Card TCP -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card1">
+                            <div class="card-body">
+                                <h5 class="card-title">TCP (Transmission Control Protocol)</h5>
+                                <p class="card-text">
+                                    Il TCP è un protocollo di trasporto orientato alla connessione, utilizzato per garantire la trasmissione affidabile dei dati tra due punti in una rete. Esso stabilisce una connessione tra il mittente e il destinatario.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Card UDP -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card2">
+                            <div class="card-body">
+                                <h5 class="card-title">UDP (User  Datagram Protocol)</h5>
+                                <p class="card-text">
+                                    L'UDP è un protocollo di trasporto non orientato alla connessione, che offre una trasmissione dei dati più semplice e veloce rispetto al TCP. Non stabilisce una connessione prima di inviare i dati e non garantisce l'ordine o l'affidabilità dei pacchetti.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container px-4"><p class="m-0 text-center text-white">Esposito Lorenzo 5E </p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

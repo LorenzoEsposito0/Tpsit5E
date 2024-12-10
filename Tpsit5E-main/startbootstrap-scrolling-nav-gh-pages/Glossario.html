@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Scrolling Nav - Start Bootstrap Template</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <style>
+        body
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container px-4">
+                <a class="navbar-brand" href="#page-top">SOCKET</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="tcp-udp.html">TCP/UDP</a></li>
+                        <li class="nav-item"><a class="nav-link" href="iso-osi.html">ISO-OSI</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">HOMEPAGE</a></li>
+                        <li class="nav-item"><a class="nav-link" href="socket.html">SOCKET</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header-->
+        <header class="bg-primary bg-gradient text-white">
+            <div class="container px-4 text-center">
+                <h1 class="fw-bolder">Glossario </h1>
+                <p class="lead"></p>
+                <a class="btn btn-lg btn-light" href="#about">Clicca qui per vedere il sito</a>
+            </div>
+        </header>
+        <div class="container mt-5">
+            <div class="row">
+                <!-- Card: Socket -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Socket</h5>
+                            <p class="card-text">
+                                Un socket è un endpoint per la comunicazione tra due macchine. Rappresenta l'astrazione fondamentale utilizzata per la comunicazione in rete.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card: SOCK_STREAM -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">SOCK_STREAM</h5>
+                            <p class="card-text">
+                                Rappresenta un socket orientato alla connessione, utilizzato per implementare protocolli come TCP. Garantisce un flusso continuo e affidabile di dati.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card: SOCK_DGRAM -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">SOCK_DATAGRAM</h5>
+                            <p class="card-text">
+                                Rappresenta un socket senza connessione, utilizzato per protocolli come UDP. I dati vengono inviati in blocchi (datagrammi) senza garanzia di ordine o affidabilità.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <!-- Card: Listen -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Listen</h5>
+                            <p class="card-text">
+                                È un'operazione che mette un socket in modalità di ascolto, permettendogli di accettare connessioni in arrivo. Utilizzato solo per socket server.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card: Bind -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Bind</h5>
+                            <p class="card-text">
+                                Associa un socket a un indirizzo IP e una porta specifici. È necessario per un server per specificare su quale porta accettare le connessioni.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card: Connect -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Connect</h5>
+                            <p class="card-text">
+                                Avvia una connessione a un socket remoto specificando l'indirizzo IP e la porta. È utilizzato dal client per connettersi al server.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <!-- Card: Accept -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Accept</h5>
+                            <p class="card-text">
+                                Consente a un socket server di accettare una connessione in arrivo. Restituisce un nuovo socket che rappresenta la connessione con il client.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card: TCP -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">TCP</h5>
+                            <p class="card-text">
+                                Il Transmission Control Protocol (TCP) è un protocollo orientato alla connessione che garantisce la consegna affidabile e ordinata dei dati tra due dispositivi in rete.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card: UDP -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">UDP</h5>
+                            <p class="card-text">
+                                Il User Datagram Protocol (UDP) è un protocollo senza connessione che consente di inviare dati rapidamente, senza garantire l'ordine o l'affidabilità dei pacchetti.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <!-- Card: Client -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Client</h5>
+                            <p class="card-text">
+                                Il client è un dispositivo o un'applicazione che avvia una richiesta di connessione verso un server per accedere a risorse o servizi specifici.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card: Server -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Server</h5>
+                            <p class="card-text">
+                                Il server è un dispositivo o un'applicazione che ascolta le richieste dei client e fornisce risposte o servizi in base alle loro richieste.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Distance">
+            <footer class="py-5 bg-dark">
+                <div class="container px-4"><p class="m-0 text-center text-white">Esposito Lorenzo 5E </p></div>
+            </footer>
+        </div>
+    </body>
+</html>
