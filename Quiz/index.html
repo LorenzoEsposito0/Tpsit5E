@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="homepage" class="container">
+    <h1>Benvenuto nel test </h1>
+    <p>Clicca qui sotto per iniziare il test. Avrai un tempo limite di 3 minuti</p>
+    <button onclick="startTest()">Start Test</button>
+</div>
+<div id="timer" class="timer" style="display: none;">Time Left: 3:00</div>
+<div id="open-questions" class="container" style="display: none;">
+    <h2>Open Questions</h2>
+    <div id="open-question-list">
+        <div>
+            <label>1. Quale è il tuo hobby preferito?</label><br>
+            <textarea rows="3" style="width: 100%;"></textarea>
+        </div>
+        <div>
+            <label>2. Quali sono i tuoi obiettivi per quest'anno?</label><br>
+            <textarea rows="3" style="width: 100%;"></textarea>
+        </div>
+    </div>
+    <button onclick="goToClosedQuestions()">Pagina successiva</button>
+</div>
+
+<div id="closed-questions" class="container" style="display: none;">
+    <h2>Closed Questions</h2>
+    <div id="closed-question-list">
+        <div>
+            <label>1. Quale è il tuo colore preferito?</label><br>
+            <input type="radio" name="color" value="Red"> Rosso<br>
+            <input type="radio" name="color" value="Blue"> Blu<br>
+            <input type="radio" name="color" value="Green"> Verde<br>
+        </div>
+        <div>
+            <label>2. Ti piace programmare?</label><br>
+            <input type="radio" name="coding" value="Yes"> si<br>
+            <input type="radio" name="coding" value="No"> no<br>
+        </div>
+    </div>
+    <button onclick="finishTest()">Finito</button>
+    <script src="script.js"></script>
+</div>
+</body>
+</html>
