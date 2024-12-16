@@ -1,0 +1,63 @@
+{
+    "navbar": {
+      "links": [
+        { "text": "TCP/UDP", "href": "tcp-udp.html", "active": false },
+        { "text": "ISO-OSI", "href": "iso-osi.html", "active": false },
+        { "text": "GLOSSARIO", "href": "glossario.html", "active": false },
+        { "text": "SOCKET", "href": "socket.html", "active": false }
+      ]
+    },
+    "header": {
+      "title": "Spiegazione delle socket",
+      "description": "Breve spiegazione e introduzione al sito",
+      "button": {
+        "text": "Clicca qui per vedere il sito",
+        "href": "#about"
+      }
+    },
+    "sections": [
+      {
+        "id": "about",
+        "title": "Le Socket sono:",
+        "description": "Una socket è un punto finale per la comunicazione, che consente a un processo (programma in esecuzione) di inviare o ricevere dati. Si può immaginare come un canale attraverso cui fluiscono i dati tra due entità di rete. La socket è definita dall'indirizzo IP che sarà quello del dispositivo in rete, la porta della socket che identifica il servizio che sta utilizzando la socket sul dispositivo, il protocollo che può essere TCP o UDP.",
+        "image": {
+          "src": "Immagini/Immagine 2024-11-30 100410.png",
+          "alt": "Comunicazione Client-Server"
+        }
+      },
+      {
+        "id": "services",
+        "title": "Modello ISO-OSI",
+        "description": "La pila ISO/OSI è un modello teorico che descrive come i dati viaggiano attraverso una rete. È suddivisa in 7 livelli, ognuno con specifiche responsabilità, per standardizzare la comunicazione tra dispositivi e applicazioni.",
+        "list": [
+          "Livello fisico",
+          "Livello Collegamento",
+          "Livello di rete",
+          "Livello di trasporto",
+          "Livello di sessione",
+          "Livello di presentazione",
+          "Livello Applicativo"
+        ],
+        "image": {
+          "src": "Immagini/OSI.gif",
+          "alt": "Modello ISO-OSI"
+        }
+      },
+      {
+        "id": "tcp-udp",
+        "cards": [
+          {
+            "title": "TCP (Transmission Control Protocol)",
+            "description": "Il TCP è un protocollo di trasporto orientato alla connessione, utilizzato per garantire la trasmissione affidabile dei dati tra due punti in una rete. Esso stabilisce una connessione tra il mittente e il destinatario."
+          },
+          {
+            "title": "UDP (User Datagram Protocol)",
+            "description": "L'UDP è un protocollo di trasporto non orientato alla connessione, che offre una trasmissione dei dati più semplice e veloce rispetto al TCP. Non stabilisce una connessione prima di inviare i dati e non garantisce l'ordine o l'affidabilità dei pacchetti."
+          }
+        ]
+      }
+    ],
+    "footer": {
+      "text": "Esposito Lorenzo 5E"
+    }
+}

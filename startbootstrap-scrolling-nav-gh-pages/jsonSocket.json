@@ -1,0 +1,65 @@
+{
+    "navbar": {
+      "brand": "SOCKET/HOMEPAGE",
+      "links": [
+        { "text": "TCP/UDP", "href": "tcp-udp.html" },
+        { "text": "ISO-OSI", "href": "iso-osi.html" },
+        { "text": "GLOSSARIO", "href": "glossario.html" },
+        { "text": "HOMEPAGE", "href": "index.html" }
+      ]
+    },
+    "header": {
+      "title": "SOCKET",
+      "description": "Cosa sono le socket?",
+      "button": {
+        "text": "Clicca qui per vedere il sito",
+        "href": "#about"
+      }
+    },
+    "sections": [
+      {
+        "id": "about",
+        "title": "Introduzione alle Socket",
+        "description": "Le socket consentono la comunicazione bidirezionale tra programmi su una rete.",
+        "cards": [
+          {
+            "title": "Definizione",
+            "description": "Una socket è un endpoint di comunicazione che permette ai programmi di inviare e ricevere dati attraverso la rete.",
+            "list": [
+              "Può essere usata con diversi protocolli, come TCP o UDP.",
+              "Fornisce un'interfaccia per la comunicazione tra processi (IPC)."
+            ]
+          },
+          {
+            "title": "Utilizzo",
+            "description": "Le socket sono fondamentali per:",
+            "list": [
+              "Applicazioni di rete, come browser o server web.",
+              "Servizi online che richiedono la trasmissione di dati in tempo reale.",
+              "Applicazioni di streaming, come videochiamate o giochi online."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "layout",
+        "title": "Esempio di Utilizzo delle Socket",
+        "image": {
+          "src": "Immagini/Sockettttt.png",
+          "alt": "Socket Diagram"
+        },
+        "description": "Le socket lavorano con i seguenti passaggi:",
+        "list": [
+          "Creazione della socket con funzioni specifiche, come socket().",
+          "Assegnazione di un indirizzo e porta con bind().",
+          "Ascolto e accettazione di connessioni con listen() e accept() (nel caso del server).",
+          "Comunicazione tramite send() e recv()."
+        ],
+        "additionalText": "Questi passaggi sono comuni a molte applicazioni client-server."
+      }
+    ],
+    "footer": {
+      "text": "Lorenzo Esposito 5E"
+    }
+  }
+  

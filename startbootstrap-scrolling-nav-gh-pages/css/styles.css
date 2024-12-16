@@ -11019,3 +11019,9 @@ footer {
 .bg-primary3 {
   background-color: violet; /* Puoi usare un codice esadecimale come #EE82EE */
 }
+
+.img-client-server, .img-osi-model {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 5px;
+}

@@ -1,0 +1,44 @@
+{
+    "title": "Modello ISO-OSI",
+    "navbar": [
+        { "name": "HOMEPAGE", "link": "index.html" },
+        { "name": "GLOSSARIO", "link": "Glossario.html" },
+        { "name": "TCP-UDP", "link": "tcp-udp.html" },
+        { "name": "SOCKET", "link": "socket.html" }
+    ],
+    "image": {
+        "src": "Immagini/modello OSI.jpg",
+        "alt": "Pila ISO/OSI"
+    },
+    "levels": [
+        {
+            "title": "Livello 1: Fisico",
+            "description": "È il livello più basso del modello e si occupa della trasmissione fisica dei dati sotto forma di segnali elettrici, ottici o radio. Definisce le specifiche hardware, come cavi, connettori, tensioni e velocità di trasmissione. Esempi: Ethernet (livello hardware), cavi di rete, fibre ottiche, segnali Wi-Fi."
+        },
+        {
+            "title": "Livello 2: Collegamento Dati",
+            "description": "Fornisce un collegamento affidabile tra due nodi della stessa rete. È responsabile del controllo degli errori e della gestione del flusso. Usa protocolli come Ethernet e Wi-Fi. Esempi: MAC address, switch di rete."
+        },
+        {
+            "title": "Livello 3: Rete",
+            "description": "Gestisce l'instradamento dei dati attraverso reti diverse. Utilizza indirizzi logici (ad esempio, indirizzi IP) per identificare i dispositivi e instradare i pacchetti. Esempi: Protocolli IP (IPv4, IPv6), router."
+        },
+        {
+            "title": "Livello 4: Trasporto",
+            "description": "Si occupa del trasferimento affidabile dei dati tra dispositivi finali, gestendo segmentazione, riassemblaggio, controllo degli errori e verifica della sequenza. Utilizza protocolli come TCP e UDP. Esempi: TCP (affidabile, orientato alla connessione), UDP (veloce ma senza controllo di errore)."
+        },
+        {
+            "title": "Livello 5: Sessione",
+            "description": "Coordina e mantiene la comunicazione tra applicazioni. Stabilisce, gestisce e termina le sessioni tra i dispositivi. Si assicura che una sessione sia sempre sincronizzata. Esempi: Gestione di login, sessioni di file sharing."
+        },
+        {
+            "title": "Livello 6: Presentazione",
+            "description": "Traduce i dati in un formato comprensibile per l'applicazione, gestisce la crittografia per la sicurezza e la compressione per ottimizzare le dimensioni dei dati. Esempi: Formati di file (JPEG, MP3), SSL/TLS per crittografia."
+        },
+        {
+            "title": "Livello 7: Applicazione",
+            "description": "Fornisce servizi diretti all'utente e alle applicazioni finali. È responsabile della gestione delle comunicazioni tra le applicazioni sulla rete. Esempi: HTTP (browser web), FTP (trasferimento file), SMTP (posta elettronica)."
+        }
+    ],
+    "footer": "Esposito Lorenzo 5E"
+}
