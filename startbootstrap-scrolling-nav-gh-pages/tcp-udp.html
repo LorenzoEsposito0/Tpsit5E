@@ -17,6 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
         <div class="container px-4">
             <a class="navbar-brand" href="#page-top">SOCKET</a>
+            <a class="navbar-brand" href="index.html">HOMEPAGE</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -35,27 +36,82 @@
         </div>
     </header>
     <!-- Main Content -->
-    <section id="tcpudp" class="bg-light text-center">
+    <section id="protocolComparison" class="bg-white py-5">
         <div class="container">
-            <h2 class="fw-bold mb-4">Differenza tra TCP e UDP</h2>
+            <h2 class="fw-bold text-center mb-4">Confronto tra TCP e UDP</h2>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Caratteristica</th>
+                        <th>TCP</th>
+                        <th>UDP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tipo di Connessione</td>
+                        <td>Orientato alla connessione</td>
+                        <td>Connectionless</td>
+                    </tr>
+                    <tr>
+                        <td>Affidabilità</td>
+                        <td>Affidabile, con conferme e ritrasmissioni</td>
+                        <td>Non affidabile, nessuna conferma</td>
+                    </tr>
+                    <tr>
+                        <td>Velocità</td>
+                        <td>Più lento a causa dell'overhead</td>
+                        <td>Molto veloce</td>
+                    </tr>
+                    <tr>
+                        <td>Applicazioni</td>
+                        <td>Web, Email, FTP</td>
+                        <td>Streaming, VoIP, Gaming</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+    <!-- Practical Examples Section -->
+    <section id="practicalExamples" class="bg-light py-5">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-4">Esempi Pratici</h2>
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title" id="tcpTitle">TCP (Transmission Control Protocol)</h3>
-                            <p class="card-text" id="tcpDescription">Descrizione di TCP</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="example bg-white p-4 shadow">
+                        <h3 class="fw-bold">Esempio di TCP</h3>
+                        <p>
+                            Il protocollo TCP viene utilizzato quando è necessario garantire che i dati arrivino integri e completi.
+                            Un esempio comune è il download di un file da un server FTP.
+                        </p>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title" id="udpTitle">UDP (User Datagram Protocol)</h3>
-                            <p class="card-text" id="udpDescription">Descrizione di UDP</p>
-                        </div>
+                <div class="col-md-6">
+                    <div class="example bg-white p-4 shadow">
+                        <h3 class="fw-bold">Esempio di UDP</h3>
+                        <p>
+                            UDP è preferibile per applicazioni in tempo reale come chiamate VoIP o streaming video, 
+                            dove la velocità è più importante dell'affidabilità assoluta.
+                        </p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <!-- Detailed Explanation Section -->
+    <section id="detailedExplanation" class="bg-white py-5">
+        <div class="container">
+            <h2 class="fw-bold text-center mb-4">Spiegazione Dettagliata</h2>
+            <p>
+                TCP (Transmission Control Protocol) è un protocollo che stabilisce una connessione prima di trasferire i dati, assicurandosi che ogni pacchetto
+                sia ricevuto correttamente. Questo è ideale per applicazioni dove l'integrità dei dati è fondamentale, come le email e i trasferimenti di file.
+            </p>
+            <p>
+                UDP (User Datagram Protocol), d'altro canto, invia i pacchetti senza preoccuparsi di riceverne una conferma. È perfetto per applicazioni dove
+                la velocità è essenziale, come giochi multiplayer o trasmissioni in diretta.
+            </p>
         </div>
     </section>
     <div class="container mt-5">

@@ -1,34 +1,15 @@
 {
-    "title": "TCP e UDP - Socket",
-    "navbar": [
-        { "name": "HOMEPAGE", "link": "index.html" },
-        { "name": "ISO-OSI", "link": "iso-osi.html" },
-        { "name": "GLOSSARIO", "link": "Glossario.html" },
-        { "name": "SOCKET", "link": "socket.html" }
+  "navbar": [
+    { "name": "HOMEPAGE", "link": "index.html" },
+    { "name": "GLOSSARIO", "link": "Glossario.html" },
+    { "name": "TCP-UDP", "link": "tcp-udp.html" },
+    { "name": "SOCKET", "link": "socket.html" }
+],
+    "handshakeSteps": [
+      { "title": "Step 1: SYN", "description": "Il client invia un pacchetto SYN per iniziare la connessione." },
+      { "title": "Step 2: SYN-ACK", "description": "Il server risponde con un pacchetto SYN-ACK per confermare." },
+      { "title": "Step 3: ACK", "description": "Il client invia un pacchetto ACK per completare la connessione." }
     ],
-    "tcp": {
-        "title": "TCP (Transmission Control Protocol)",
-        "description": "TCP è un protocollo orientato alla connessione che garantisce l'affidabilità della trasmissione dati. Viene utilizzato per applicazioni come il web, email, e trasferimenti di file."
-    },
-    "udp": {
-        "title": "UDP (User Datagram Protocol)",
-        "description": "UDP è un protocollo non orientato alla connessione, più veloce ma meno affidabile. È utilizzato per applicazioni come streaming video, chiamate VoIP e giochi online."
-    },
-    "handshake": {
-        "steps": [
-            {
-                "title": "Fase 1: SYN",
-                "description": "Il client invia un messaggio SYN al server. Questo messaggio indica al server che il client desidera stabilire una connessione. Include un numero di sequenza iniziale (ISN), che serve per identificare il primo byte della connessione."
-            },
-            {
-                "title": "Fase 2: SYN-ACK",
-                "description": "Il server risponde con un messaggio SYN-ACK. Questo messaggio conferma la ricezione del SYN inviato dal client (ACK) e invia il proprio SYN al client con il numero di sequenza iniziale del server."
-            },
-            {
-                "title": "Fase 3: ACK",
-                "description": "Il client invia un messaggio ACK al server, confermando la ricezione del SYN-ACK del server e fornendo il numero di sequenza successivo previsto dal server. Dopo questa fase, la connessione è stabilita."
-            }
-        ]
-    },
-    "footer": "Esposito Lorenzo 5E"
-}
+    "footerText": "Esposito Lorenzo 5E"
+  }
+  

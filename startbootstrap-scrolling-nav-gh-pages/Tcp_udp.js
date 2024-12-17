@@ -1,55 +1,54 @@
-// Funzione per caricare i dati dal file JSON e popolare la pagina
-document.addEventListener("DOMContentLoaded", function() {
+// Carica dinamicamente il contenuto della pagina utilizzando il file JSON
+document.addEventListener("DOMContentLoaded", function () {
     fetch("jsonTcpUdp.json")
-    .then(response => response.json())
-    .then(data => {
-        // Popolare il titolo della pagina
-        document.title = data.title;
-        
-        // Popolare la sezione Navbar
-        let navbar = document.querySelector('nav .navbar-nav');
-        data.navbar.forEach(item => {
-            let navItem = document.createElement('li');
-            navItem.classList.add('nav-item');
-            navItem.innerHTML = `<a class="nav-link" href="${item.link}">${item.name}</a>`;
-            navbar.appendChild(navItem);
-        });
-        
-        // Popolare le informazioni su TCP
-        document.querySelector('#tcpudp h2').innerText = 'Differenza tra TCP e UDP';
-        document.querySelector('.card-title').innerText = data.tcp.title;
-        document.querySelector('.card-text').innerText = data.tcp.description;
+        .then((response) => response.json())
+        .then((data) => {
+            populateNavbar(data.navbar);
+            populateHandshakeAccordion(data.handshakeSteps);
+            populateFooter(data.footerText);
+        })
+        .catch((error) => console.error("Errore nel caricamento del file JSON:", error));
+});
 
-        // Popolare le informazioni su UDP
-        document.querySelectorAll('.card-title')[1].innerText = data.udp.title;
-        document.querySelectorAll('.card-text')[1].innerText = data.udp.description;
+// Popola la barra di navigazione dinamicamente
+function populateNavbar(navItems) {
+    const navbarList = document.getElementById("navbarList");
+    navItems.forEach((item) => {
+        const li = document.createElement("li");
+        li.classList.add("nav-item");
+        li.innerHTML = `
+            <a class="nav-link" href="${item.link}">${item.name}</a>
+        `;
+        navbarList.appendChild(li);
+    });
+}
 
-        // Popolare le fasi del Three-Way Handshake
-        let accordion = document.querySelector('#handshakeAccordion');
-        data.handshake.steps.forEach((step, index) => {
-            let accordionItem = document.createElement('div');
-            accordionItem.classList.add('card');
-            accordionItem.innerHTML = `
-                <div class="card-header" id="heading${index + 1}">
-                    <h2 class="mb-0">
-                        <button class="btn btn-link ${index === 0 ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index + 1}" aria-expanded="${index === 0 ? 'true' : 'false'}" aria-controls="collapse${index + 1}">
-                            ${step.title}
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapse${index + 1}" class="collapse ${index === 0 ? 'show' : ''}" aria-labelledby="heading${index + 1}" data-bs-parent="#handshakeAccordion">
-                    <div class="card-body">
+// Popola l'accordion con i passi del Three-Way Handshake
+function populateHandshakeAccordion(steps) {
+    const accordion = document.getElementById("handshakeAccordion");
+    steps.forEach((step, index) => {
+        const collapseId = `collapse${index}`;
+        const isFirst = index === 0 ? "show" : ""; // Mostra il primo elemento di default
+        const stepHtml = `
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading${index}">
+                    <button class="accordion-button ${isFirst ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}" aria-expanded="true" aria-controls="${collapseId}">
+                        ${step.title}
+                    </button>
+                </h2>
+                <div id="${collapseId}" class="accordion-collapse collapse ${isFirst}" aria-labelledby="heading${index}" data-bs-parent="#handshakeAccordion">
+                    <div class="accordion-body">
                         ${step.description}
                     </div>
                 </div>
-            `;
-            accordion.appendChild(accordionItem);
-        });
-
-        // Popolare il footer
-        document.querySelector('footer p').innerText = data.footer;
-    })
-    .catch(error => {
-        console.error('Errore nel caricare il file JSON:', error);
+            </div>
+        `;
+        accordion.innerHTML += stepHtml;
     });
-});
+}
+
+// Popola il testo del footer
+function populateFooter(text) {
+    const footerText = document.getElementById("footerText");
+    footerText.textContent = text;
+}
