@@ -1,75 +1,193 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const cartButton = document.querySelectorAll(".btn-outline-dark");
-    const cartItemsContainer = document.getElementById("cart-items");
-    const cartCount = document.getElementById("cart-count");
     let cart = [];
+    let discount = 0;
+    let appliedDiscount = 0;
 
-    cartButton.forEach(button => {
-        button.addEventListener("click", function (event) {
-            event.preventDefault();
-            
-            const productCard = button.closest(".card");
-            const productName = productCard.querySelector("h5").innerText;
-            const productPrice = productCard.querySelector(".text-center span") ? productCard.querySelector(".text-center span").nextSibling.nodeValue.trim() : productCard.querySelector(".text-center").lastChild.textContent.trim();
-            const productImage = productCard.querySelector(".card-img-top").src;
+    // Dati dei prodotti direttamente nel JavaScript
+    const products = [
+        { "id": 1, "name": "Felpa Nike Rossa", "price": 60.00, "image": "Img/FelpaNikeRossa.webp" },
+        { "id": 2, "name": "Felpa Nike Nera", "price": 60.00, "image": "img/FelpaNera.webp" },
+        { "id": 3, "name": "Felpa Nike Blu", "price": 55.00, "image": "Img/FelpaNike.webp" },
+        { "id": 4, "name": "Felpa Nike Verde", "price": 70.00, "image": "Img/FelpaNikeVerde.webp" },
+        { "id": 5, "name": "Pantaloni Nike Neri", "price": 50.00, "image": "Img/PantaloniNikeNeri.webp" },
+        { "id": 6, "name": "Pantaloni Nike Grigi", "price": 45.00, "image": "Img/PantaloniNikeGrigi.webp" },
+        { "id": 7, "name": "Nike Tech Pantaloni", "price": 80.00, "image": "Img/PantaloniNikeBlu.webp" },
+        { "id": 8, "name": "Nike AF1", "price": 100.00, "image": "Img/Nikeaf1.webp" },
+        { "id": 9, "name": "Nike ZM", "price": 110.00, "image": "Img/Niketn.webp" },
+        { "id": 10, "name": "Calze Nike", "price":15.00, "image": "Img/CalzeNike.webp" },
+        { "id": 11, "name": "3 Mutande Nike", "price":30.00, "image": "Img/Mutande.webp" },
+        { "id": 12, "name": "Nike Mercurial blu", "price":180.00, "image": "Img/NikeMercurialBlu.webp" },
+        { "id": 13, "name": "Nike Mercurial bianche", "price":180.00, "image": "Img/NikeMercurialBianche.webp" },
+        { "id": 14, "name": "Nike Toni Kross", "price":250.00, "image": "Img/Toni.webp" },
+    ];
 
-            addToCart(productName, productPrice, productImage);
-        });
-    });
+    let validCoupons = {
+        "SCONTO10": { discount: 0.10, minTotal: 100 },
+        "SCONTO15": { discount: 0.15, minTotal: 150 },
+        "SCONTO20": { discount: 0.20, minTotal: 200 }
+    };
 
-    function addToCart(name, price, image) {
-        let existingItem = cart.find(item => item.name === name);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({ name, price, image, quantity: 1 });
-        }
-        updateCartUI();
-    }
+    function renderProducts() {
+        const productsContainer = document.querySelector(".container .row");
+        productsContainer.innerHTML = "";
 
-    function updateCartUI() {
-        cartItemsContainer.innerHTML = "";
-        let totalItems = 0;
-        
-        cart.forEach(item => {
-            totalItems += item.quantity;
-            let cartItem = document.createElement("li");
-            cartItem.classList.add("dropdown-item");
-            cartItem.innerHTML = `
-                <div class="d-flex align-items-center" style="width: 400px; padding: 15px; font-size: 1.2rem;">
-                    <img src="${item.image}" style="width: 80px; height: 80px; object-fit: cover; margin-right: 15px;" alt="${item.name}">
-                    <div>
-                        <p class="m-0 font-weight-bold">${item.name} </p>
-                        <small style="font-size: 1rem;">${item.price}</small>
-                        <div class="d-flex align-items-center mt-2">
-                            <button class="btn btn-lg btn-outline-secondary me-3" onclick="updateQuantity('${item.name}', -1)">-</button>
-                            <span style="font-size: 1.3rem; font-weight: bold;">${item.quantity}</span>
-                            <button class="btn btn-lg btn-outline-secondary ms-3" onclick="updateQuantity('${item.name}', 1)">+</button>
+        products.forEach(product => {
+            const productHTML = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="${product.image}" alt="Product">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bolder">${product.name}</h5>
+                            <p class="price">$${product.price.toFixed(2)}</p>
+                            <button class="btn btn-outline-dark add-to-cart">Ottieni informazioni</button>
+                            <button class="btn btn-outline-dark add-to-cart" data-id="${product.id}">Add to cart</button>
                         </div>
                     </div>
                 </div>
             `;
-            cartItemsContainer.appendChild(cartItem);
+            productsContainer.innerHTML += productHTML;
+        });
+    }
+
+    function updateCart() {
+        const cartList = document.querySelector(".listCart");
+        cartList.innerHTML = cart.map((item, index) => `
+            <div class="d-flex justify-content-between align-items-center border-bottom py-2">
+                <span>${item.name} - $${item.price.toFixed(2)}</span>
+                <button class="btn btn-danger btn-sm remove-item" data-index="${index}">Remove</button>
+            </div>
+        `).join("");
+
+        document.querySelectorAll(".remove-item").forEach(button => {
+            button.addEventListener("click", function () {
+                const index = this.getAttribute("data-index");
+                cart.splice(index, 1);
+                appliedDiscount = 0;
+                updateCart();
+            });
         });
 
-        cartCount.innerText = totalItems;
+        updateTotal();
     }
 
-    window.updateQuantity = function(name, change) {
-        let item = cart.find(item => item.name === name);
-        if (item) {
-            item.quantity += change;
-            if (item.quantity <= 0) {
-                cart = cart.filter(i => i.name !== name);
+    function updateTotal() {
+        let total = cart.reduce((sum, item) => sum + item.price, 0);
+        let finalTotal = total - appliedDiscount;
+
+        document.querySelector(".totalAmount").innerHTML = `
+            <strong>Totale: $${total.toFixed(2)}</strong> 
+            ${appliedDiscount > 0 ? `<br><span class="text-success">Sconto applicato: -$${appliedDiscount.toFixed(2)}</span>` : ""}
+            <br><strong>Totale finale: $${finalTotal.toFixed(2)}</strong>
+        `;
+    }
+
+    document.getElementById("applyCoupon").addEventListener("click", function () {
+        const couponInput = document.getElementById("couponCode").value.trim().toUpperCase();
+        let total = cart.reduce((sum, item) => sum + item.price, 0);
+
+        if (validCoupons[couponInput]) {
+            let coupon = validCoupons[couponInput];
+
+            if (total >= coupon.minTotal) {
+                appliedDiscount = total * coupon.discount;
+                alert(`Coupon ${couponInput} applicato con successo!`);
+            } else {
+                appliedDiscount = 0;
+                alert(`Il coupon ${couponInput} richiede una spesa minima di $${coupon.minTotal}`);
+            }
+        } else {
+            appliedDiscount = 0;
+            alert("Coupon non valido!");
+        }
+        updateTotal();
+    });
+
+    document.addEventListener("click", function (event) {
+        if (event.target.classList.contains("add-to-cart")) {
+            const productId = event.target.getAttribute("data-id");
+            const product = products.find(p => p.id == productId);
+            
+            if (product) {
+                cart.push({ name: product.name, price: product.price });
+                appliedDiscount = 0;
+                updateCart();
             }
         }
-        updateCartUI();
+    });
+
+    document.querySelector(".checkOut").addEventListener("click", function () {
+        if (cart.length === 0) {
+            alert("Il carrello è vuoto!");
+            return;
+        }
+        alert("Checkout completato!");
+        cart = [];
+        appliedDiscount = 0;
+        document.getElementById("couponCode").value = "";
+        updateCart();
+    });
+
+    document.getElementById("refreshButton").addEventListener("click", function () {
+        location.reload();
+    });
+
+    renderProducts();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    let cart = [];
+    let discount = 0;
+    let appliedDiscount = 0;
+
+    // Dati dei prodotti direttamente nel JavaScript
+    const products = [
+        { "id": 1, "name": "Felpa Nike Rossa", "price": 60.00, "image": "Img/FelpaNikeRossa.webp" },
+        { "id": 2, "name": "Felpa Nike Nera", "price": 60.00, "image": "Img/FelpaNera.webp" },
+        { "id": 3, "name": "Felpa Nike Blu", "price": 55.00, "image": "Img/FelpaNike.webp" },
+        { "id": 4, "name": "Felpa Nike Verde", "price": 70.00, "image": "Img/FelpaNikeVerde.webp" },
+        { "id": 5, "name": "Pantaloni Nike Neri", "price": 50.00, "image": "Img/PantaloniNikeNeri.webp" },
+        { "id": 6, "name": "Pantaloni Nike Grigi", "price": 45.00, "image": "Img/PantaloniNikeGrigi.webp" },
+        { "id": 7, "name": "Nike Tech Pantaloni", "price": 80.00, "image": "Img/PantaloniNikeBlu.webp" },
+        { "id": 8, "name": "Nike AF1", "price": 100.00, "image": "Img/Nikeaf1.webp" },
+        { "id": 9, "name": "Nike ZM", "price": 110.00, "image": "Img/Niketn.webp" },
+        { "id": 10, "name": "Calze Nike", "price":15.00, "image": "Img/CalzeNike.webp" },
+        { "id": 11, "name": "3 Mutande Nike", "price":30.00, "image": "Img/Mutande.webp" },
+        { "id": 12, "name": "Nike Mercurial blu", "price":180.00, "image": "Img/NikeMercurialBlu.webp" },
+        { "id": 13, "name": "Nike Mercurial bianche", "price":180.00, "image": "Img/NikeMercurialBianche.webp" },
+        { "id": 14, "name": "Nike Toni Kross", "price":250.00, "image": "Img/Toni.webp" },
+    ];
+
+    function renderProducts() {
+        const productsContainer = document.getElementById("product-list");
+        productsContainer.innerHTML = "";
+
+        products.forEach(product => {
+            const productHTML = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img class="card-img-top" src="${product.image}" alt="Product">
+                        <div class="card-body text-center">
+                            <h5 class="fw-bolder">${product.name}</h5>
+                            <p class="price">$${product.price.toFixed(2)}</p>
+                            <button class="btn btn-outline-dark view-info" data-id="${product.id}">Ottieni informazioni</button>
+                            <button class="btn btn-outline-dark add-to-cart" data-id="${product.id}">Add to cart</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            productsContainer.innerHTML += productHTML;
+        });
+
+        // Reindirizza alla pagina dei dettagli del prodotto
+        document.querySelectorAll(".view-info").forEach(button => {
+            button.addEventListener("click", function () {
+                const productId = this.getAttribute("data-id");
+                window.location.href = `product-details.html?id=${productId}`;
+            });
+        });
     }
 
-    // Move cart to the right side of the navbar
-    const cartContainer = document.querySelector(".cart");
-    cartContainer.style.position = "absolute";
-    cartContainer.style.right = "20px";
-    cartContainer.style.top = "10px";
+    renderProducts();
 });
+
+
