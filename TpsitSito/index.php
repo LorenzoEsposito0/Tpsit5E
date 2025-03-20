@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>Shop Homepage - Shopping Cart</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/styles.css" />
     <style>
         .cartTab {
             position: fixed;
@@ -18,7 +18,7 @@
             background: white;
             border-left: 1px solid #ccc;
             padding: 20px;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+            box-shadow: -2px 0 5px rgba(0,0,0,0.2);
             display: block;
         }
     </style>
@@ -29,15 +29,13 @@
         <a class="navbar-brand" href="#">Vendita sportiva</a>
         <div class="d-flex ms-auto" style="margin-right: 220px">
             <?php if (isset($_SESSION['user_id'])): ?>
-            <!-- Mostra il nome dell'utente e il pulsante di logout -->
-            <span class="me-3">Ciao <?php echo htmlspecialchars($_SESSION['id']); ?>!</span>
-            <a href="php/logout.php" class="btn btn-outline-danger">Logout</a>
+                <!-- Mostra il nome dell'utente e il pulsante di logout -->
+                <span class="me-3">Ciao <?php echo htmlspecialchars($_SESSION['fullname']); ?>!</span>
+                <a href="php/logout.php" class="btn btn-outline-danger">Logout</a>
             <?php else: ?>
-            <!-- Mostra i pulsanti di login e registrazione -->
-            <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login
-            </button>
-            <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#registerModal">Register
-            </button>
+                <!-- Mostra i pulsanti di login e registrazione -->
+                <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
             <?php endif; ?>
         </div>
     </div>
@@ -85,8 +83,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="registerPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="registerPassword" name="registerPassword"
-                               required>
+                        <input type="password" class="form-control" id="registerPassword" name="registerPassword" required>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Register</button>
                 </form>
@@ -120,8 +117,13 @@
         <button class="btn btn-success mt-2" id="applyCoupon">Applica Coupon</button>
     </div>
     <div class="totalAmount mt-3" style="color: black"></div>
-    <div class="btn mt-3">
+    <div class="btn mt-3" >
         <button id="refreshButton" class="checkOut btn btn-primary">Check Out</button>
+        <?php if (isset($_GET['order']) && $_GET['order'] === 'success'): ?>
+            <div class="alert alert-success" role="alert">
+                Ordine effettuato con successo!
+            </div>
+        <?php endif; ?>
     </div>
 </div>
 <footer class="bg-dark text-white text-center py-4 mt-5">
