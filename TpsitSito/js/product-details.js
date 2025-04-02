@@ -38,63 +38,63 @@ const products = [
         id: 6, 
         name: "Pantaloni Nike Grigi", 
         price: 45.00, 
-        image: "../Img/PantaloniNikeGrigi.webp",
+        image: "Img/PantaloniNikeGrigi.webp",
         description: "Pantaloni Nike grigi con elastico regolabile. Realizzati con materiali resistenti, offrono il massimo comfort grazie alla vestibilità rilassata e alla presenza di tasche laterali. Ideali per l'allenamento o per un outfit casual." 
     },
     { 
         id: 7, 
         name: "Nike Tech Pantaloni", 
         price: 80.00, 
-        image: "../Img/PantaloniNikeBlu.webp",
+        image: "Img/PantaloniNikeBlu.webp",
         description: "Pantaloni Nike Tech in materiale tecnico avanzato. Studiati per garantire il massimo della performance, sono dotati di cuciture ergonomiche e tessuto elasticizzato per una libertà di movimento ottimale. Perfetti per attività sportive e outdoor." 
     },
     { 
         id: 8, 
         name: "Nike AF1", 
         price: 100.00, 
-        image: "../Img/Nikeaf1.webp",
+        image: "Img/Nikeaf1.webp",
         description: "Scarpe Nike Air Force 1, icona senza tempo. Con la loro suola ammortizzata e il design classico, queste sneakers sono un must-have per gli appassionati di streetwear. La tomaia in pelle offre resistenza e stile senza tempo." 
     },
     { 
         id: 9, 
         name: "Nike ZM", 
         price: 110.00, 
-        image: "../Img/Niketn.webp",
+        image: "Img/Niketn.webp",
         description: "Scarpe Nike ZM con design futuristico. Progettate per garantire il massimo comfort e supporto grazie alla tecnologia Zoom Air, sono perfette per chi cerca un look audace e prestazioni elevate nelle attività sportive." 
     },
     { 
         id: 10, 
         name: "Calze Nike",
         price: 15.00,
-        image: "../Img/CalzeNike.webp",
+        image: "Img/CalzeNike.webp",
         description:" Set di tre paia di calze Nike nere realizzate in cotone morbido e traspirante, con supporto per l'arco plantare per un comfort duraturo. Il design a mezza altezza con il classico logo Nike ricamato le rende perfette per ogni occasione, dallo sport al tempo libero."
     },
     { 
         id: 11, 
         name: "3 Mutande Nike",
         price:30.00,
-        image: "../Img/Mutande.webp" ,
+        image: "Img/Mutande.webp" ,
         description:"Un set di tre boxer Nike Pro realizzati in tessuto elasticizzato e traspirante per offrire massimo comfort e libertà di movimento. La fascia elastica in vita con logo Nike garantisce una vestibilità aderente e sicura, ideale per l'attività sportiva e l'uso quotidiano."
     },
     { 
         id: 12,
         name: "Nike Mercurial blu", 
         price:180.00, 
-        image: "../Img/NikeMercurialBlu.webp",
+        image: "Img/NikeMercurialBlu.webp",
         description:"Le Nike Phantom GX Elite FG sono pensate per i giocatori creativi che amano avere un controllo eccezionale sul pallone. La tomaia è realizzata in Nike Gripknit, un materiale innovativo che offre un tocco superiore e una maggiore aderenza sulla palla, anche in condizioni di umidità. Il sistema di allacciatura asimmetrico permette una superficie di contatto più ampia, ideale per passaggi precisi e tiri potenti. La struttura flessibile avvolge il piede per una sensazione di seconda pelle, mentre la suola con tacchetti Tri-Star ottimizza la trazione su campi in erba naturale. Il colore azzurro elettrico con dettagli bianchi dona un aspetto elegante e accattivante, perfetto per chi vuole distinguersi in campo."
     },
     { 
         id: 13, 
         name: "Nike Mercurial bianche", 
         price:180.00, 
-        image: "../Img/NikeMercurialBianche.webp",
+        image: "Img/NikeMercurialBianche.webp",
         description:"Le Nike Mercurial Superfly 9 Elite FG sono progettate per i giocatori più veloci in campo. La tomaia in Flyknit ultraleggero offre una calzata aderente e un comfort superiore, mentre il sistema di allacciatura dinamico assicura un supporto perfetto per movimenti rapidi e scatti improvvisi. La tecnologia Zoom Air unit integrata nella suola permette un'ammortizzazione reattiva, offrendo una spinta esplosiva ad ogni passo. Il design aerodinamico, con il classico Swoosh in nero e dettagli arancioni vivaci, garantisce un look aggressivo e moderno. La suola con tacchetti FG (Firm Ground) è ideale per campi in erba naturale asciutti, offrendo un grip eccezionale e un'aderenza perfetta anche nei cambi di direzione più bruschi."
     },
     { 
         id: 14, 
         name: "Nike Mercurial rosse", 
         price:250.00, 
-        image: "../Img/Toni.webp",
+        image: "Img/Toni.webp",
         description:"Le Nike Tiempo Legend 10 Elite FG sono progettate per chi cerca comfort e precisione. La tomaia è realizzata in FlyTouch Plus, un materiale più morbido e leggero rispetto alla pelle tradizionale, che si adatta perfettamente alla forma del piede senza perdere struttura nel tempo. Il cuscinetto in schiuma interna assicura un controllo eccezionale sulla palla, mentre la linguetta in mesh traspirante migliora la ventilazione. La suola con piatto Hyperstability e tacchetti conici offre un'ottima combinazione di stabilità e agilità nei movimenti. Il design iridescente verde acqua con Swoosh bianco e dettagli dorati rende queste scarpe un must-have per chi vuole unire prestazioni e stile in campo."
     },
 ];

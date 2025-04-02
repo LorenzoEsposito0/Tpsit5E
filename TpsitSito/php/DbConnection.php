@@ -20,3 +20,5 @@ class Dbconnection //gestisce la connessione ad un database usando PDO
         return self::$db;
     }
 }
+
+

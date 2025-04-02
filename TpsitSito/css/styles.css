@@ -10854,18 +10854,42 @@ textarea.form-control-lg {
   margin-bottom: 10px;
 }
 
-.cartTab{
-  width: 400px;
-  background-color: #353432;
-  color: #eee;
+.cartTab {
   position: fixed;
   top: 0;
-  right: -400px;
-  bottom: 0;
-  display: grid;
-  grid-template-rows: 70px 1fr 70px;
-  transition: .5s;
+  right: 0;
+  width: 300px;
+  background: white;
+  border-left: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+  height: 100vh;
+  overflow-y: auto;
+  transition: all 0.3s ease;
 }
+
+.checkOut {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.checkOut:hover {
+  background-color: #0056b3;
+}
+
+.listCart {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
 body.showCart .cartTab{
   right: 0;
 }

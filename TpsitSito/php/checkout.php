@@ -1,52 +1,58 @@
 <?php
 session_start();
-require 'DbConnection.php';
-$config = require 'config.php';
-$db = Dbconnection::GETdb($config);
+require_once 'DbConnection.php';
+$config = require_once 'config.php';
 
-// Verifica se l'utente è loggato
 if (!isset($_SESSION['user_id'])) {
-    echo json_encode(['success' => false, 'message' => 'Utente non loggato']);
-    exit();
+    echo json_encode(['success' => false, 'message' => 'Utente non autenticato']);
+    exit;
 }
 
-// Verifica se il carrello è vuoto
-if (!isset($_SESSION['cart']) || empty($_SESSION['cart'])) {
-    echo json_encode(['success' => false, 'message' => 'Carrello vuoto']);
-    exit();
-}
+$data = json_decode(file_get_contents('php://input'), true);
+$userId = $_SESSION['user_id'];
 
-// Recupera l'email dell'utente dalla sessione
-$email = $_SESSION['email'];
+try {
+    $pdo = DbConnection::GETdb($config);
+    $pdo->beginTransaction();
 
-// Array per memorizzare i risultati degli inserimenti
-$results = [];
+    // 1. Verifica disponibilità prodotti
+    foreach ($data['products'] as $product) {
+        $stmt = $pdo->prepare("SELECT stock FROM products WHERE id = ?");
+        $stmt->execute([$product['id']]);
+        $productData = $stmt->fetch();
 
-// Itera attraverso gli articoli nel carrello e inseriscili nel database
-foreach ($_SESSION['cart'] as $item) {
-    $product_name = $item['name'];
-    $quantity = $item['quantity'];
-    $total_price = $item['price'] * $item['quantity'];
-
-    // Prepara la query per inserire l'ordine nel database
-    $stmt = $db->prepare("INSERT INTO orders (email, product_name, quantity, total_price) VALUES (:email, :product_name, :quantity, :total_price)");
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':product_name', $product_name);
-    $stmt->bindParam(':quantity', $quantity);
-    $stmt->bindParam(':total_price', $total_price);
-
-    // Esegui la query
-    if ($stmt->execute()) {
-        $results[] = ['success' => true, 'message' => 'Ordine inserito con successo'];
-    } else {
-        $results[] = ['success' => false, 'message' => 'Errore durante l\'inserimento dell\'ordine'];
+        if (!$productData || $productData->stock < 1) {
+            throw new Exception("Prodotto {$product['name']} non disponibile");
+        }
     }
+
+    // 2. Crea ordine (dovresti avere una tabella orders)
+    $total = array_reduce($data['products'], function($sum, $product) {
+            return $sum + $product['price'];
+        }, 0) - ($data['discount'] ?? 0);
+
+    $stmt = $pdo->prepare("INSERT INTO orders (user_id, total_amount, created_at) VALUES (?, ?, NOW())");
+    $stmt->execute([$userId, $total]);
+    $orderId = $pdo->lastInsertId();
+
+    // 3. Aggiungi prodotti all'ordine (dovresti avere order_items)
+    foreach ($data['products'] as $product) {
+        $stmt = $pdo->prepare("INSERT INTO order_items (order_id, product_id, quantity, price) VALUES (?, ?, 1, ?)");
+        $stmt->execute([$orderId, $product['id'], $product['price']]);
+
+        // Aggiorna stock
+        $stmt = $pdo->prepare("UPDATE products SET stock = stock - 1 WHERE id = ?");
+        $stmt->execute([$product['id']]);
+    }
+
+    // 4. Svuota carrello
+    $stmt = $pdo->prepare("DELETE FROM cart WHERE user_id = ?");
+    $stmt->execute([$userId]);
+
+    $pdo->commit();
+    echo json_encode(['success' => true, 'message' => 'Ordine completato']);
+} catch (Exception $e) {
+    $pdo->rollBack();
+    echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
-
-// Svuota il carrello dopo l'ordine
-unset($_SESSION['cart']);
-
-// Restituisci una risposta JSON
-echo json_encode(['success' => true, 'message' => 'Checkout completato con successo', 'results' => $results]);
-exit();
 ?>
