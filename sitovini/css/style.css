@@ -1,0 +1,89 @@
+/* General Styles */
+body {
+    font-family: 'Georgia', serif;
+    color: #333;
+    line-height: 1.6;
+    padding-top: 56px; /* For fixed navbar */
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('https://images.unsplash.com/photo-1510812431401-41e2f9c2696b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+    background-size: cover;
+    padding: 120px 0;
+    color: white;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Introduction Section */
+.introduction-section img {
+    transition: transform 0.3s;
+}
+
+.introduction-section img:hover {
+    transform: scale(1.02);
+}
+
+.wine-feature {
+    border-left: 4px solid #8B0000;
+    padding-left: 15px;
+    margin-bottom: 30px;
+}
+
+/* Trust Section */
+.trust-box {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 20px;
+    height: 100%;
+    transition: all 0.3s;
+    background: white;
+}
+
+.trust-box:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+}
+
+/* Newsletter Section */
+.newsletter-section .form-control {
+    height: 50px;
+}
+
+/* Footer */
+.footer-section {
+    background-color: #343a40;
+}
+
+.footer-section a {
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: #d4b168 !important;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 0;
+        min-height: 50vh;
+    }
+
+    .introduction-section .col-md-6 {
+        margin-bottom: 30px;
+    }
+
+    .trust-box {
+        margin-bottom: 20px;
+    }
+}
